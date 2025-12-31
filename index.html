@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Mariana | Psicóloga Clínica</title>
+    <style>
+        /* --- RESET E VARIÁVEIS --- */
+        :root {
+            --primary: #5daca9; /* Verde Menta Profissional */
+            --primary-dark: #468c89;
+            --text: #333;
+            --bg-light: #f9fbfc;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { color: var(--text); line-height: 1.6; background-color: var(--bg-light); }
+
+        /* --- UTILITÁRIOS --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(93, 172, 169, 0.4);
+        }
+        .btn:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary-dark); }
+        .menu a { text-decoration: none; color: var(--text); margin-left: 20px; font-size: 0.9rem; }
+        .menu a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 120px 0 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; color: #2c3e50; }
+        .hero-text p { font-size: 1.1rem; color: #666; margin-bottom: 30px; }
+        .hero-img { flex: 1; text-align: center; }
+        .hero-img img { 
+            width: 100%; max-width: 400px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
+
+        /* --- SOBRE --- */
+        .sobre { padding: 80px 0; background: var(--white); }
+        .sobre-content { display: flex; align-items: center; gap: 50px; }
+        .sobre-img img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 5px solid var(--bg-light); }
+        
+        /* --- SERVIÇOS --- */
+        .servicos { padding: 80px 0; text-align: center; }
+        .section-title { font-size: 2rem; margin-bottom: 50px; color: #2c3e50; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+        .card h3 { margin-bottom: 15px; color: var(--primary-dark); }
+
+        /* --- FAQ --- */
+        .faq { padding: 80px 0; background: var(--white); max-width: 800px; margin: 0 auto; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; cursor: pointer; color: #2c3e50; }
+        .faq-item p { color: #666; font-size: 0.95rem; }
+
+        /* --- FOOTER --- */
+        footer { background: #2c3e50; color: var(--white); text-align: center; padding: 40px 0; margin-top: 50px; }
+        footer p { margin-bottom: 20px; opacity: 0.8; }
+
+        /* --- BOTÃO FLUTUANTE WHATSAPP --- */
+        .zap-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 2000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- MOBILE --- */
+        /* --- MOBILE (Versão Ajustada) --- */
+    @media (max-width: 768px) {
+        
+        /* 1. MANTENDO O MENU SIMPLIFICADO */
+        .menu { display: none; } /* Mantém os links ocultos para focar na ação */
+        .logo { margin: 0 auto; } /* Centraliza o logo/nome */
+
+        /* 2. CORREÇÃO DO TEXTO GRUDADO */
+        /* Forçamos um preenchimento maior nas laterais de todo o site */
+        .container {
+            padding-left: 30px !important; 
+            padding-right: 30px !important;
+            width: 100%; /* Garante que o container não estoure a tela */
+        }
+
+        /* 3. AJUSTES DE LAYOUT */
+        .hero { 
+            flex-direction: column-reverse; 
+            text-align: center; 
+            padding-top: 100px; 
+        }
+        
+        .hero h1 { font-size: 2rem; }
+        
+        .sobre-content { 
+            flex-direction: column; 
+            text-align: center; 
+        }
+        
+        /* Garante que imagens e textos não vazem a tela */
+        .hero-img img, .sobre-img img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dra. Mariana</div>
+                <div class="menu">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#servicos">Serviços</a>
+                    <a href="#faq">Dúvidas</a>
+                    <a href="#contato" style="color: var(--primary); font-weight: bold;">Agendar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-text">
+            <h1>Reencontre seu equilíbrio emocional e viva com mais leveza.</h1>
+            <p>Atendimento clínico acolhedor para Ansiedade, Depressão e Autoconhecimento. Terapia Online e Presencial.</p>
+            <a href="https://wa.me/5500000000000" class="btn">💬 Agendar Sessão Agora</a>
+        </div>
+        <div class="hero-img">
+            <img src="https://placehold.co/400x400/5daca9/white?text=Foto+Dra+Mariana" alt="Psicóloga Sorrindo">
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container sobre-content">
+            <div class="sobre-img">
+                <img src="https://placehold.co/300x300/e0e0e0/333?text=Foto+Perfil" alt="Foto Mariana">
+            </div>
+            <div class="sobre-text">
+                <h2 style="margin-bottom: 20px; color: #2c3e50;">Olá, eu sou a Mariana.</h2>
+                <p>Sou psicóloga clínica (CRP 00/12345) com especialização em Terapia Cognitivo-Comportamental.</p>
+                <br>
+                <p>Meu objetivo é te ajudar a lidar com suas emoções de forma saudável, em um ambiente seguro, ético e totalmente sem julgamentos. Acredito que a terapia é a chave para uma vida com mais significado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos container">
+        <h2 class="section-title">Como posso te ajudar?</h2>
+        <div class="cards">
+            <div class="card">
+                <span class="icon">🧠</span>
+                <h3>Terapia Individual</h3>
+                <p>Sessões de 50 minutos focadas nas suas necessidades e no seu momento atual.</p>
+            </div>
+            <div class="card">
+                <span class="icon">💻</span>
+                <h3>Atendimento Online</h3>
+                <p>Faça terapia do conforto da sua casa, em qualquer lugar do mundo, com total sigilo.</p>
+            </div>
+            <div class="card">
+                <span class="icon">🌿</span>
+                <h3>Orientação</h3>
+                <p>Suporte focado para momentos de transição de carreira e tomadas de decisão.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq container">
+        <h2 class="section-title" style="text-align: center;">Dúvidas Frequentes</h2>
+        
+        <div class="faq-item">
+            <h3>Aceita convênio médico?</h3>
+            <p>Trabalho na modalidade particular, mas emito recibo e relatório para que você possa solicitar o reembolso integral ou parcial junto ao seu plano de saúde.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Como funciona o agendamento?</h3>
+            <p>É muito simples. Você entra em contato pelo WhatsApp, verificamos a disponibilidade de horários na semana e confirmamos sua sessão.</p>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="container">
+            <h2>Cuide de você. A terapia transforma.</h2>
+            <br>
+            <a href="https://wa.me/5500000000000" class="btn" style="background: white; color: #2c3e50;">📅 Quero Agendar Minha Sessão</a>
+            <br><br><br>
+            <p>© 2025 Dra. Mariana - Psicologia Clínica.<br>Desenvolvido por Lucas Landing Pages.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5500000000000" class="zap-float" target="_blank">
+        <svg fill="white" width="30" height="30" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+</body>
+</html>
